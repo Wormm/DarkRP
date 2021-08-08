@@ -76,7 +76,7 @@ function meta:keysOwn(ply)
 
     ply.OwnedNumz = ply.OwnedNumz or 0
     if ply.OwnedNumz == 0 and GAMEMODE.Config.propertytax then
-        timer.Create(ply:SteamID64() .. "propertytax", 270, 0, function() ply.doPropertyTax(ply) end)
+        timer.Create(ply:SteamID64() .. "propertytax", 270, 0, function() if ply:IsValid() then ply.doPropertyTax(ply) end end)
     end
 
     ply.OwnedNumz = ply.OwnedNumz + 1
